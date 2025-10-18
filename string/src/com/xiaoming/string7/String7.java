@@ -31,11 +31,12 @@ public class String7 {
             next[i] = j;
         }
 
-        if (next[n - 1] > 0 && n % (n - next[n - 1]) == 0) {
-            return true;
+        // Step 2.判断重复子字符串
+        if (next[n - 1] > 0 && n % (n - next[n - 1]) == 0) { // 当字符串s的长度可以被其最长相等前后缀不包含的子串的长度整除时
+            return true; // 不包含的子串就是s的最小重复子串
+        } else {
+            return false;
         }
-
-        return false;
 
     }
 
