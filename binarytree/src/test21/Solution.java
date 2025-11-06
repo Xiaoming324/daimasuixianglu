@@ -47,6 +47,10 @@ public class Solution {
             TreeNode node1 = stack.pop();
             TreeNode node2 = stack.pop();
             node1.val += node2.val;
+            //由于我们是在 node1 的基础上进行合并
+            //只有在两个节点都存在时才需要进一步处理子树
+            //只有在 node1 缺少节点时才需要从 node2 获取节点
+            //node1 有节点而 node2 没有节点的情况不需要特殊处理
             if (node2.right != null && node1.right != null) {
                 stack.push(node2.right);
                 stack.push(node1.right);
